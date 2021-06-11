@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+body{
+    background: white;
+}    
+
+#wrapper{
+    width:1800px;
+    height:1200px;
+    border:10px solid red;
+    margin: auto;
+    text-align: center;
+    background-color: black;
+    overflow: hidden;
+} 
+#wrapper h1{
+    margin-top: -160px;
+    /* margin-bottom: 0px; */
+    text-align:center;
+    font-weight: bold;
+    font-size:180px;
+    background: linear-gradient(to bottom, rgb(247, 2, 2), rgba(0, 0, 0, 0));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent ;
+    z-index: 3;
+}
+#zombieBg img{
+    margin-top: 0px;
+    margin-left: -150px;
+    width: 2100px;
+    background: no-repeat;
+    filter: brightness(50%);
+}
+#memo{
+    margin-top: 200px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 25px;
+    color: yellow;
+}
+#container{
+    height:50px;
+}
+#container p{
+    text-align: center;
+    color:darkturquoise;
+    font-weight: bold;
+    font-size:60px;
+    display:none;  /*  none:않보임   block:보임*/
+}
+#wrapper button{
+    padding:10px;
+    font-size: 30px;
+
+}
+</style>
+<script>    
+var flag=true;
+function init(){
+    document.querySelector("button").addEventListener("click" , function(){
+        //메인 페이지로 링크!!
+        //a 태그를 자바스크립트로 표현한 것이 location.href 
+        location.href="Zombie In Darkness.html";
+    });
+}
+
+//깜빡거리는 효과
+function blink(){
+    var vision = (flag)? "none":"block";
+    document.querySelector("p").style.display= vision;
+    flag=!flag;
+}
+window.addEventListener("load", function(){
+    init();
+    setInterval("blink()",500);
+});
+</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="zombieBg">
+            <img src="../images/shooting/bg_zombie2.png" alt="">
+        </div>
+        <h1>Zombie In Darkness</h1>
+        <div id="container">
+            <p>ESCAPE NOW</p>
+        </div>
+        <div id="memo">
+            <span>※ 좀비를 피해 열쇠를 찾아 잠긴문을 열어 탈출하세요</span>
+        </div>
+        <button>Game Start</button>
+    </div>    
+</body>
+</html>
